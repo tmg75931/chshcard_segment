@@ -1,0 +1,33 @@
+# 중앙 경로 및 실험 기본 설정 (코드 검증 시 data_root만 /data 등으로 변경 가능)
+project:
+  name: "dacon-236460-credit-card-segment"
+  competition_id: 236460
+  seed: 42
+  n_folds: 5
+  id_col: "ID"
+  time_col: "기준년월"
+  target_col: "Segment"
+  classes: ["A", "B", "C", "D", "E"]
+  metric: "macro_f1"
+  months: [201807, 201808, 201809, 201810, 201811, 201812]
+
+# 주의: 4.청구입금정보 폴더만 실제 파일 접미사가 '청구정보'임
+domains:
+  "1.회원정보": "회원정보"
+  "2.신용정보": "신용정보"
+  "3.승인매출정보": "승인매출정보"
+  "4.청구입금정보": "청구정보"
+  "5.잔액정보": "잔액정보"
+  "6.채널정보": "채널정보"
+  "7.마케팅정보": "마케팅정보"
+  "8.성과정보": "성과정보"
+
+paths:
+  data_root: "data"
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  oof_dir: "experiments/oof"
+  artifacts_dir: "experiments/artifacts"
+  submissions_dir: "submissions"
+  sample_submission: "data/raw/sample_submission.csv"
